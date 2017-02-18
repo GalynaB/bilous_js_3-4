@@ -11,29 +11,20 @@
   padding-left: 100px;
 }
 
-label {
-  font-size: 20px;
+.check-wrap {
   margin-left: 50px;
+}
+
+.check-wrap label {
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 20px;
   cursor: pointer;
-  display: inline-block;
 }
 
-label::before {
-  content: "";
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  border: 2px solid #000;
-  background-color: #31B0D5;
-  margin-right: 10px;
-}
-
-input:checked + label:before {
-  background-color: #000;
-}
-
-li input {
-  display: none;
+.check-wrap input {
+  width: 18px;
+  height: 18px;
 }
 
 .btn {
