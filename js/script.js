@@ -37,7 +37,7 @@ for (i = 0; i < 3; i++){
   document.querySelector('li');
   liItem.appendChild(checkWrap);
 
-  for (j = 0; j < 3; j++){
+  for (j = 0; j < 3; j++) {
     var check = document.createElement('input');
     document.querySelectorAll('.check-wrap');
     check.id = 'version-' + (i + 1) + '-' + (j + 1);
