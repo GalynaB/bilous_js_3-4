@@ -1,15 +1,15 @@
 var genTest = {
-	title: 'Тест по программированию',
-	questions: 'Вопрос №',
-	answers: 'Вариант ответа №',
-	btn: 'Проверить мои результаты',
+  title: 'Тест по программированию',
+  questions: 'Вопрос №',
+  answers: 'Вариант ответа №',
+  btn: 'Проверить мои результаты',
 
-	genTag: function(parentName, tagName, className) {
-		var parent = document.querySelector(parentName);
-		var tag = document.createElement(tagName);
-		tag.classList.add(className);
-		parent.appendChild(tag);
-	}
+  genTag: function(parentName, tagName, className) {
+    var parent = document.querySelector(parentName);
+    var tag = document.createElement(tagName);
+    tag.classList.add(className);
+    parent.appendChild(tag);
+  }
 }
 
 genTest.genTag('body', 'div', 'container-fluid');
@@ -27,11 +27,11 @@ form.setAttribute('method', 'post');
 var list = document.querySelector('.list-group');
 
 for (i = 0; i < 3; i++){
-	var liItem = document.createElement('li');
+  var liItem = document.createElement('li');
   document.querySelector('.list-group');
   list.appendChild(liItem);
 
-	var quest = document.createElement('h3');
+  var quest = document.createElement('h3');
   document.querySelector('li');
   liItem.appendChild(quest);
   quest.innerHTML = (i + 1) + '. ' + genTest.questions + (i + 1);
