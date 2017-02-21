@@ -1,36 +1,40 @@
-var body = document.querySelector('body');
-var wrapper = document.createElement('div');
+var genTest = {
+	title: 'Тест по программированию',
+	questions: 'Вопрос №',
+	answers: 'Вариант ответа №',
+	btn: 'Проверить мои результаты',
 
-wrapper.classList.add('container-fluid');
-body.appendChild(wrapper);
+	genTag: function(parentName, tagName, className) {
+		var parent = document.querySelector(parentName);
+		var tag = document.createElement(tagName);
+		tag.classList.add(className);
+		parent.appendChild(tag);
+	}
+}
 
-var title = document.createElement('h1');
-title.classList.add('title');
-title.innerHTML = 'Тест по программированию';
-document.querySelector('wrapper');
-wrapper.appendChild(title);
+genTest.genTag('body', 'div', 'container-fluid');
 
-var form = document.createElement('form');
-form.classList.add('form-group');
+genTest.genTag('.container-fluid', 'h1', 'title');
+var header = document.querySelector('.title');
+header.innerHTML = genTest.title;
+
+genTest.genTag('.container-fluid', 'form', 'form-group');
+genTest.genTag('.form-group', 'ul', 'list-group');
+var form = document.querySelector('.form-group');
 form.setAttribute('action', '#');
 form.setAttribute('method', 'post');
-document.querySelector('wrapper');
-wrapper.appendChild(form);
 
-var list = document.createElement('ul');
-list.classList.add('list-group');
-document.querySelector('form');
-form.appendChild(list);
+var list = document.querySelector('.list-group');
 
 for (i = 0; i < 3; i++){
-  var liItem = document.createElement('li');
+	var liItem = document.createElement('li');
   document.querySelector('.list-group');
   list.appendChild(liItem);
 
-  var quest = document.createElement('h3');
+	var quest = document.createElement('h3');
   document.querySelector('li');
   liItem.appendChild(quest);
-  quest.innerHTML = (i + 1) + '. Вопрос №' + (i + 1);
+  quest.innerHTML = (i + 1) + '. ' + genTest.questions + (i + 1);
 
   var checkWrap = document.createElement('div');
   checkWrap.classList.add('check-wrap');
@@ -47,15 +51,14 @@ for (i = 0; i < 3; i++){
 
     var answer = document.createElement('label');
     answer.setAttribute('for', 'version-' + (i + 1) + '-' + (j + 1));
-    answer.innerHTML = 'Вариант ответа №' + (j + 1);
+    answer.innerHTML = genTest.answers + (j + 1);
     document.querySelectorAll('.check-wrap');
     checkWrap.appendChild(answer);
   }
 }
 
-var btn = document.createElement('button');
-btn.classList.add('btn', 'btn-primary', 'btn-lg', 'btn-block');
+genTest.genTag('form', 'button', 'btn');
+var btn = document.querySelector('button');
+btn.classList.add('btn-primary', 'btn-lg', 'btn-block');
 btn.setAttribute('type', 'submit');
-btn.innerHTML = 'Проверить мои результаты';
-document.querySelector('form');
-form.appendChild(btn);
+btn.innerHTML = genTest.btn;
