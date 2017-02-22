@@ -1,64 +1,80 @@
-var genTest = {
-  title: 'Тест по программированию',
-  questions: 'Вопрос №',
-  answers: 'Вариант ответа №',
-  btn: 'Проверить мои результаты',
-
-  genTag: function(parentName, tagName, className) {
+function genTag (parentName, tagName, className) {
     var parent = document.querySelector(parentName);
     var tag = document.createElement(tagName);
     tag.classList.add(className);
     parent.appendChild(tag);
   }
+
+genTag('body', 'div', 'container-fluid');
+
+var data = {
+  pageTitle: 'Тест по программированию',
+
+  categories: [
+
+  {categoryName : "1. Вопрос №1",
+
+    variant : [
+      'Вариант ответа №1',
+      'Вариант ответа №2',
+      'Вариант ответа №3',
+    ],
+
+    inputName: ['11','12','13']
+
+  },
+
+  {
+    categoryName : "2. Вопрос №2",
+
+    variant : [
+      'Вариант ответа №1',
+      'Вариант ответа №2',
+      'Вариант ответа №3',
+    ],
+
+    inputName: ['21','22','23']
+  },
+  {
+    categoryName : "3. Вопрос №3",
+
+    variant : [
+      'Вариант ответа №1',
+      'Вариант ответа №2',
+      'Вариант ответа №3',
+    ],
+
+    inputName: ['31','32','33']
+  }
+  ],
+
+  result: "Проверить мои результаты",
+
+  genTitle: function(pageTitle) {
+
+    var title = document.createElement('h1');
+    title.innerHTML = this.pageTitle;
+    title.classList.add('title');
+    var wrapper = document.querySelector('.container-fluid');
+    wrapper.appendChild(title);
+  },
+
+  genBtn: function(result) {
+    var btn = document.createElement('button');
+    btn.innerHTML = this.result;
+    btn.classList.add('btn', 'btn-primary', 'btn-lg', 'btn-block');
+    var form = document.querySelector('.form-group');
+    form.appendChild(btn);
+  }
 }
 
-genTest.genTag('body', 'div', 'container-fluid');
+data.genTitle();
 
-genTest.genTag('.container-fluid', 'h1', 'title');
-var header = document.querySelector('.title');
-header.innerHTML = genTest.title;
-
-genTest.genTag('.container-fluid', 'form', 'form-group');
-genTest.genTag('.form-group', 'ul', 'list-group');
+genTag('.container-fluid', 'form', 'form-group');
 var form = document.querySelector('.form-group');
 form.setAttribute('action', '#');
 form.setAttribute('method', 'post');
 
-var list = document.querySelector('.list-group');
+genTag('.form-group', 'ul', 'list-group');
 
-for (i = 0; i < 3; i++){
-  var liItem = document.createElement('li');
-  document.querySelector('.list-group');
-  list.appendChild(liItem);
-
-  var quest = document.createElement('h3');
-  document.querySelector('li');
-  liItem.appendChild(quest);
-  quest.innerHTML = (i + 1) + '. ' + genTest.questions + (i + 1);
-
-  var checkWrap = document.createElement('div');
-  checkWrap.classList.add('check-wrap');
-  document.querySelector('li');
-  liItem.appendChild(checkWrap);
-
-  for (j = 0; j < 3; j++) {
-    var check = document.createElement('input');
-    document.querySelectorAll('.check-wrap');
-    check.id = 'version-' + (i + 1) + '-' + (j + 1);
-    check.setAttribute('type', 'checkbox');
-    check.setAttribute('name', 'qw' + (j + 1) );
-    checkWrap.appendChild(check);
-
-    var answer = document.createElement('label');
-    answer.setAttribute('for', 'version-' + (i + 1) + '-' + (j + 1));
-    answer.innerHTML = genTest.answers + (j + 1);
-    document.querySelectorAll('.check-wrap');
-    checkWrap.appendChild(answer);
-  }
-}
-
-genTest.genTag('form', 'button', 'btn');
-var btn = document.querySelector('button');
-btn.classList.add('btn-primary', 'btn-lg', 'btn-block');
-btn.setAttribute('type', 'submit');
-btn.innerHTML = genTest.btn;
+data.genBtn();
