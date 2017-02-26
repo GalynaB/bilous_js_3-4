@@ -30,9 +30,12 @@ var data = {
       var li = document.createElement('li');
       var ul = document.querySelector('.list-group');
       ul.appendChild(li);
-    };
 
-    
+      document.querySelectorAll('.list-group');
+      var h3 = document.createElement('h3');
+      h3.innerHTML = (i + 1) + ". " + this.question[i];
+      li.appendChild(h3);
+    };
   },
 
   genBtn: function(result) {
