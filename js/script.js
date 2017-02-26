@@ -35,6 +35,27 @@ var data = {
       var h3 = document.createElement('h3');
       h3.innerHTML = (i + 1) + ". " + this.question[i];
       li.appendChild(h3);
+
+      var chechWrap = document.createElement('div');
+      li.appendChild(chechWrap);
+      chechWrap.classList.add('check-wrap');
+
+      for (j = 0; j < this.variant[i].length; j++) {
+
+        var check = document.createElement('input');
+
+        document.querySelectorAll('.check-wrap');
+        chechWrap.appendChild(check);
+
+        check.id = 'version-' + (i + 1) + '-' + (j + 1);
+        check.setAttribute('type', 'checkbox');
+        check.setAttribute('name', 'qw' + (j + 1) );
+
+        var answ = document.createElement('label');
+        chechWrap.appendChild(answ);
+        answ.setAttribute('for', 'version-' + (i + 1) + '-' + (j + 1));
+        answ.innerHTML = this.variant[i][j];
+      };
     };
   },
 
